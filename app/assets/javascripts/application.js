@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require angular
 //= require bootstrap-sprockets
 //= require tabOverride-4.0.3.min
