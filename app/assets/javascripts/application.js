@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require angular
+//= require angular-ui-router-0.3.2.min
 //= require bootstrap-sprockets
 //= require tabOverride-4.0.3.min
 //
