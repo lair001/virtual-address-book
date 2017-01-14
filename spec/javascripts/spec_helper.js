@@ -5,6 +5,19 @@
 // require support/chai-jq-0.0.7
 // require support/your-support-file
 //
+// Imported updated versions
+//= require support/sinon-1.17.6
+//= require support/chai-3.5.0
+//= require support/chai-jq-0.0.9
+//
+// Additional testing libraries
+//
+//= require support/sinon-chai-2.7.0
+//
+// ngMocks included with Angular Rails gem
+//
+//= angular-mocks
+//
 // PhantomJS (Teaspoons default driver) doesn't have support for Function.prototype.bind, which has caused confusion.
 // Use this polyfill to avoid the confusion.
 //= require support/phantomjs-shims
@@ -36,5 +49,5 @@
 // at: http://chaijs.com/guide/styles
 //
 // window.assert = chai.assert;
-// window.expect = chai.expect;
+window.expect = chai.expect;
 // window.should = chai.should();
