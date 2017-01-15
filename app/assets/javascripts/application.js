@@ -13,7 +13,9 @@
 //= require jquery
 //= require angular
 //= require angular-ui-router-0.3.2.min
+//= require angular-rails-templates
 //= require bootstrap-sprockets
 //= require tabOverride-4.0.3.min
 //
 //= require_tree ./modules
+//= require_tree ./templates
