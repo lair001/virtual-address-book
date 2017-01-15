@@ -1,6 +1,6 @@
 angular
 	.module('app', ['ui.router', 'templates'])
-	.config(function($stateProvider, $urlRouterProvider) {
+	.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 		$stateProvider
 			.state('visitor', {
 				url: '/',
@@ -15,4 +15,4 @@ angular
 				.when("/", "/welcome")
 				.otherwise("/welcome");
 
-	});
+	}]);
