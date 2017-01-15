@@ -3,10 +3,7 @@ class UsersController < JsonController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			reset_session
-			session[:user_id] = @user.id
-			session[:security_code] = @user.security_code
-			render json: @user
+			sign_in_user_and_render_user_json
 		else
 			render json: @user, status: 422, serializer: ActiveModel::Serializer::ErrorSerializer
 		end

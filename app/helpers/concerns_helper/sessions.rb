@@ -9,5 +9,12 @@ module ConcernsHelper
 			!!current_user
 		end
 
+		def sign_in_user_and_render_user_json
+			reset_session
+			session[:user_id] = @user.id
+			session[:security_code] = @user.security_code
+			render json: @user
+		end
+
 	end
 end

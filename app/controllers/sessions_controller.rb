@@ -3,10 +3,7 @@ class SessionsController < JsonController
 	def create
 		@user = User.find_by(username: params[:username].strip)
 		if @user && !@user.banned? && @user.authenticate(params[:password].strip)
-			reset_session
-			session[:user_id] = @user.id
-			session[:security_code] = @user.security_code
-			render json: @user
+			sign_in_user_and_render_user_json
 		else
 			render json: @user, status: 403, serializer: InvalidCredentialsSerializer
 		end
