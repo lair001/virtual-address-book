@@ -9,6 +9,16 @@ class UsersController < JsonController
 		end
 	end
 
+	def update
+		@user = User.find(params[:id])
+		authorize(@user)
+		if @user.update(user_params)
+			render json: @user
+		else
+			render json: @user, status: 422, serializer: ActiveModel::Serializer::ErrorSerializer
+		end
+	end
+
 private
 
 	def user_params
