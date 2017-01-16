@@ -7,7 +7,7 @@ class User < ApplicationRecord
 	before_validation :generate_and_set_security_code
 
 	validates :username, { uniqueness: true, length: { in: 2..50 } }
-	validates :email, { uniqueness: true, length: { maximum: 50 }, format: { with: email_regex } }
+	validates :email, { uniqueness: true, length: { in: 5..50 }, format: { with: email_regex } }
 	validates :security_code, { length: { is: 128 } }
 	validates :password, { length: { minimum: 6 } }
 

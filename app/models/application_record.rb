@@ -13,7 +13,7 @@ class ApplicationRecord < ActiveRecord::Base
 	end
 
 	def self.email_regex
-		/\A[^@]+@[^@]+\.[^.@\d]+\z/
+		/\A([^@]+@[^@]+\.[^.@\d]+|)\z/
 	end
 
 	def self.contact_name_regex
