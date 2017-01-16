@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
 	has_secure_password
 
-	before_create :generate_and_set_security_code
+	before_validation :generate_and_set_security_code
 
 	validates :username, { uniqueness: true, length: { in: 2..50 } }
 	validates :email, { uniqueness: true, length: { maximum: 50 }, format: { with: /\A[^@]+@[^@]+\.[^.@\d]+\z/ } }
