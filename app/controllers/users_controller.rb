@@ -13,6 +13,7 @@ class UsersController < JsonController
 		@user = User.find(params[:id])
 		authorize(@user)
 		if @user.update(user_params)
+			session[:security_code] = @user.security_code if @user == current_user
 			render json: @user
 		else
 			render json: @user, status: 422, serializer: ActiveModel::Serializer::ErrorSerializer
