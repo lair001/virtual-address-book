@@ -14,17 +14,17 @@ ActiveRecord::Schema.define(version: 20170116035504) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "last_name"
-    t.string   "first_name"
-    t.string   "email"
-    t.string   "phone"
-    t.string   "address_line_1"
-    t.string   "address_line_2"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip_code"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "last_name",      default: "", null: false
+    t.string   "first_name",     default: "", null: false
+    t.string   "email",          default: "", null: false
+    t.string   "phone",          default: "", null: false
+    t.string   "address_line_1", default: "", null: false
+    t.string   "address_line_2", default: "", null: false
+    t.string   "city",           default: "", null: false
+    t.string   "state",          default: "", null: false
+    t.string   "zip_code",       default: "", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "users", force: :cascade do |t|
