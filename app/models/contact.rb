@@ -49,27 +49,27 @@ class Contact < ApplicationRecord
 	end
 
 	def self.format_last_name(last_name)
-		trim_whitespace_in(convert_whitespace_that_is_not_spaces_to_spaces_in(last_name.strip)).capitalize
+		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(last_name).capitalize
 	end
 
 	def self.format_first_name(first_name)
-		trim_whitespace_in(convert_whitespace_that_is_not_spaces_to_spaces_in(first_name.strip)).capitalize
+		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(first_name).capitalize
 	end
 
 	def self.format_phone(phone)
-		trim_whitespace_in(convert_whitespace_that_is_not_spaces_to_spaces_in(phone.strip)).split('').keep_if{ |char| char.match(/\d/) }.insert(6, '-').insert(3, ')').insert(0, '(').join('')
+		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(phone).split('').keep_if{ |char| char.match(/\d/) }.insert(6, '-').insert(3, ')').insert(0, '(').join('')
 	end
 
 	def self.format_city(city)
-		trim_whitespace_in(convert_whitespace_that_is_not_spaces_to_spaces_in(city.strip)).split(' ').collect{ |word| word.capitalize }.join(' ')
+		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(city).split(' ').collect{ |word| word.capitalize }.join(' ')
 	end
 
 	def self.format_state(state)
-		trim_whitespace_in(convert_whitespace_that_is_not_spaces_to_spaces_in(state.strip)).upcase
+		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(state).upcase
 	end
 
 	def self.format_address_line(address_line)
-		trim_whitespace_in(convert_whitespace_that_is_not_spaces_to_spaces_in(address_line.strip)).split(' ').collect{ |word| word.capitalize }.join(' ')
+		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(address_line).split(' ').collect{ |word| word.capitalize }.join(' ')
 	end
 
 end
