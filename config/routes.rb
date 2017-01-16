@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 	root 'visitor#index'
 
 	resources :sessions, only: [:create, :destroy]
-	resources :users, only: [:create, :update]
+	resources :users, only: [:create, :update, :show]
 end
