@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
 	rescue_from(ActiveRecord::RecordNotFound) { render json: {}, status: 404, serializer: RecordNotFoundSerializer }
 	protect_from_forgery with: :exception
 
+protected
+
+	include ApplicationHelper
+
 end
