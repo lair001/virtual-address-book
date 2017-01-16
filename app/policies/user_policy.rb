@@ -5,7 +5,7 @@ class UserPolicy < ApplicationPolicy
 	end
 
 	def update?
-		user.superuser? || user.administrator? || user == record
+		user.administrator? || user == record
 	end
 
 end
