@@ -16,4 +16,12 @@ class ApplicationRecord < ActiveRecord::Base
 		/\A[^@]+@[^@]+\.[^.@\d]+\z/
 	end
 
+	def self.contact_name_regex
+		/\A\w{,25}\z/
+	end
+
+	def self.contact_address_line_regex
+		/\A[\w .]{,50}\z/
+	end
+
 end

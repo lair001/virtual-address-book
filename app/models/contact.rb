@@ -2,12 +2,12 @@ class Contact < ApplicationRecord
 
 	belongs_to :user
 
-	validates :last_name, format: { with: name_regex }
-	validates :first_name, format: { with: name_regex }
+	validates :last_name, format: { with: contact_name_regex }
+	validates :first_name, format: { with: contact_name_regex }
 	validates :email, { uniqueness: true, length: { maximum: 50 }, format: { with: email_regex } }
 	validates :phone, { format: { with: /\A(\(\d{3}\)\d{3}-\d{4}|)\z/ } }
-	validates :address_line_1, { format: { with: address_line_regex } }
-	validates :address_line_2, { format: { with: address_line_regex } }
+	validates :address_line_1, { format: { with: contact_address_line_regex } }
+	validates :address_line_2, { format: { with: contact_address_line_regex } }
 	validates :city, { format: { with: /\A[\w .]{,25}\z/ } }
 	validates :state, { format: { with: /\A([A-Z]{2}|)\z/ } }
 	validates :zip_code, { format: { with: /\A(\d{5}-\d{4}|\d{5})\z/ }  }
@@ -62,14 +62,6 @@ class Contact < ApplicationRecord
 
 	def self.format_address_line(address_line)
 		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(address_line).split(' ').collect{ |word| word.capitalize }.join(' ')
-	end
-
-	def self.name_regex
-		/\A\w{,25}\z/
-	end
-
-	def self.address_line_regex
-		/\A[\w .]{,50}\z/
 	end
 
 end
