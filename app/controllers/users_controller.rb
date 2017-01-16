@@ -5,7 +5,7 @@ class UsersController < JsonController
 		if @user.save
 			sign_in_user_and_render_user_json
 		else
-			render json: @user, status: 422, serializer: ActiveModel::Serializer::ErrorSerializer
+			render json: @user, status: 422, serializer: ModelErrorsSerializer
 		end
 	end
 
@@ -16,7 +16,7 @@ class UsersController < JsonController
 			session[:security_code] = @user.security_code if @user == current_user
 			render json: @user
 		else
-			render json: @user, status: 422, serializer: ActiveModel::Serializer::ErrorSerializer
+			render json: @user, status: 422, serializer: ModelErrorsSerializer
 		end
 	end
 
