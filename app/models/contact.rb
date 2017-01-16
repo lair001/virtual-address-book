@@ -12,14 +12,6 @@ class Contact < ApplicationRecord
 	validates :state, { format: { with: /\A([A-Z]{2}|)\z/ } }
 	validates :zip_code, { format: { with: /\A(\d{5}-\d{4}|\d{5})\z/ }  }
 
-	def name_regex
-		/\A\w{,25}\z/
-	end
-
-	def address_line_regex
-		/\A[\w .]{,50}\z/
-	end
-
 	def last_name=(last_name)
 		write_attribute(:last_name, self.class.format_last_name(last_name))
 	end
@@ -70,6 +62,14 @@ class Contact < ApplicationRecord
 
 	def self.format_address_line(address_line)
 		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(address_line).split(' ').collect{ |word| word.capitalize }.join(' ')
+	end
+
+	def self.name_regex
+		/\A\w{,25}\z/
+	end
+
+	def self.address_line_regex
+		/\A[\w .]{,50}\z/
 	end
 
 end

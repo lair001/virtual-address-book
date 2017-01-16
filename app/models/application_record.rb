@@ -4,10 +4,6 @@ class ApplicationRecord < ActiveRecord::Base
 	include Forbiddable::InstanceMethods
 	extend Whitespaceable::ClassMethods
 
-	def email_regex
-		/\A[^@]+@[^@]+\.[^.@\d]+\z/
-	end
-
 	def email=(email)
 		write_attribute(:email, self.class.format_email(email))
 	end
@@ -15,4 +11,9 @@ class ApplicationRecord < ActiveRecord::Base
 	def self.format_email(email)
 		email.strip
 	end
+
+	def self.email_regex
+		/\A[^@]+@[^@]+\.[^.@\d]+\z/
+	end
+
 end
