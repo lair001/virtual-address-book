@@ -29,7 +29,7 @@ class Contact < ApplicationRecord
 	end
 
 	def city=(city)
-		write_attribute(:state, self.class.format_city(city))
+		write_attribute(:city, self.class.format_city(city))
 	end
 
 	def phone=(phone)

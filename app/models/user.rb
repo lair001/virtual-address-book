@@ -30,7 +30,7 @@ class User < ApplicationRecord
 	end
 
 	def self.format_username(username)
-		 strip_convert_whitespace_to_spaces_and_trim_whitespace_in(username)
+		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(username)
 	end
 
 end
