@@ -19,7 +19,7 @@ class User < ApplicationRecord
 		absence_of_whitespace_in :password
 	end
 
-	enum role: [:banned, :normal, :administrator, :moderator, :superuser]
+	enum role: [:banned, :normal, :administrator]
 
 	def username=(username)
 		write_attribute(:username, self.class.format_username(username))
