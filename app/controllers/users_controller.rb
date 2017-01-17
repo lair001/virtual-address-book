@@ -26,6 +26,13 @@ class UsersController < JsonController
 		end
 	end
 
+	def destroy
+		@user = User.find(params[:id])
+		authorize(@user)
+		@user.destroy
+		render json: {}, serializer: ResourceDestroyedSerializer
+	end
+
 private
 
 	def user_params
