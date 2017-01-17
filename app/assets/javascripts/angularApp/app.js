@@ -34,6 +34,10 @@
 					url: '/contacts',
 					templateUrl: 'index/signed_in/contacts.html'
 				})
+				.state('index.signed_in.contacts.new', {
+					url: '/new',
+					templateUrl: 'index/signed_in/contacts/new.html'
+				})
 				.state('index.signed_in.contacts.show', {
 					url: '/:id',
 					templateUrl: 'index/signed_in/contacts/show.html'
