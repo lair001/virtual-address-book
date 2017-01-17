@@ -30,6 +30,14 @@
 					url: 'signed_in',
 					templateUrl: 'index/signed_in.html'
 				})
+				.state('index.signed_in.account', {
+					url: '/account',
+					templateUrl: 'index/signed_in/account.html'
+				})
+				.state('index.signed_in.account.edit', {
+					url: '/edit',
+					templateUrl: 'index/signed_in/account/edit.html'
+				})
 				.state('index.signed_in.contacts', {
 					url: '/contacts',
 					templateUrl: 'index/signed_in/contacts.html'
@@ -51,6 +59,7 @@
 					.when("/", "/visitor/welcome")
 					.when("/visitor", "/visitor/welcome")
 					.when("/signed_in", "/visitor/welcome")
+					.when("/signed_in/account", "/signed_in/account/edit")
 					.otherwise("/visitor/welcome");
 
 		}]);
