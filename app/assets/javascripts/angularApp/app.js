@@ -2,16 +2,21 @@ angular
 	.module('app', ['ui.router', 'templates'])
 	.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 		$stateProvider
-			.state('visitor', {
-				url: '/',
-				templateUrl: 'visitor.html',
+			.state('index', {
+				url: '',
+				templateUrl: 'index.html'
 			})
-			.state('visitor.welcome', {
+			.state('index.visitor', {
+				url: '/',
+				templateUrl: 'index/visitor.html',
+			})
+			.state('index.visitor.welcome', {
 				url: 'welcome',
-				templateUrl: 'visitor/welcome.html'
+				templateUrl: 'index/visitor/welcome.html'
 			});
 
 			$urlRouterProvider
+				.when("", "/welcome")
 				.when("/", "/welcome")
 				.otherwise("/welcome");
 
