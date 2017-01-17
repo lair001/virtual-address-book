@@ -12,7 +12,7 @@
 				})
 				.state('index.visitor', {
 					url: 'visitor',
-					templateUrl: 'index/visitor.html',
+					templateUrl: 'index/visitor.html'
 				})
 				.state('index.visitor.sign_in', {
 					url: '/sign_in',
@@ -33,6 +33,14 @@
 				.state('index.signed_in.contacts', {
 					url: '/contacts',
 					templateUrl: 'index/signed_in/contacts.html'
+				})
+				.state('index.signed_in.contacts.show', {
+					url: '/:id',
+					templateUrl: 'index/signed_in/contacts/show.html'
+				})
+				.state('index.signed_in.contacts.show.edit', {
+					url: '/edit',
+					templateUrl: 'index/signed_in/contacts/show/edit.html'
 				});
 
 				$urlRouterProvider
