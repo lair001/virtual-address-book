@@ -8,4 +8,8 @@ class UserPolicy < ApplicationPolicy
 		user.administrator? || user == record
 	end
 
+	def destroy?
+		user == record
+	end
+
 end
