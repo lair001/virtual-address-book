@@ -5,6 +5,7 @@ class User < ApplicationRecord
 	has_secure_password
 
 	before_validation :generate_and_set_security_code
+	after_destroy :destroy_contacts
 
 	validates :username, { uniqueness: true, length: { in: 2..50 } }
 	validates :email, { uniqueness: true, length: { in: 5..50 }, format: { with: email_regex } }
@@ -20,6 +21,10 @@ class User < ApplicationRecord
 	end
 
 	enum role: [:banned, :normal, :administrator]
+
+	def destroy_contacts
+		self.contacts.destroy_all
+	end
 
 	def username=(username)
 		write_attribute(:username, self.class.format_username(username))
