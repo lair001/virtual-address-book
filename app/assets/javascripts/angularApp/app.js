@@ -3,21 +3,30 @@ angular
 	.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 		$stateProvider
 			.state('index', {
-				url: '',
+				url: '/',
 				templateUrl: 'index.html'
 			})
 			.state('index.visitor', {
-				url: '/',
+				url: 'visitor',
 				templateUrl: 'index/visitor.html',
 			})
 			.state('index.visitor.welcome', {
-				url: 'welcome',
+				url: '/welcome',
 				templateUrl: 'index/visitor/welcome.html'
+			})
+			.state('index.signed_in', {
+				url: 'signed_in',
+				templateUrl: 'index/signed_in.html'
+			})
+			.state('index.signed_in.contacts', {
+				url: '/contacts',
+				templateUrl: 'index/signed_in/contacts.html'
 			});
 
 			$urlRouterProvider
-				.when("", "/welcome")
-				.when("/", "/welcome")
-				.otherwise("/welcome");
+				.when("/", "/visitor/welcome")
+				.when("/visitor", "/visitor/welcome")
+				.when("/signed_in", "/visitor/welcome")
+				.otherwise("/visitor/welcome");
 
 	}]);
