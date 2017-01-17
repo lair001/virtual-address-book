@@ -58,7 +58,7 @@
 				$urlRouterProvider
 					.when("/", "/visitor/welcome")
 					.when("/visitor", "/visitor/welcome")
-					.when("/signed_in", "/visitor/welcome")
+					.when("/signed_in", "/signed_in/contacts")
 					.when("/signed_in/account", "/signed_in/account/edit")
 					.otherwise("/visitor/welcome");
 
