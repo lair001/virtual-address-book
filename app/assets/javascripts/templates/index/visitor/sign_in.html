@@ -2,14 +2,12 @@ Sign in level
 
 <form>
 
-	Username
-	<input ng-model="signIn.user.username">
-	Password
-	<input ng-model="signIn.user.password">
+	<label for="username">Username</label><br>
+	<input ng-model="signIn.user.username" id="username"><br>
 
-	Username
-	{{ signIn.user.username }}
-	Password
-	{{ signIn.user.password }}
+	<label for="password">Password</label><br>
+	<input ng-model="signIn.user.password" id="password"><br>
+
+	<input type="submit" ng-click="signIn.submit();">
 
 </form>

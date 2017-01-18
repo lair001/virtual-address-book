@@ -11,6 +11,11 @@
 				username: "",
 				password: ""
 			}
+
+			signIn.submit = function signInSubmit() {
+				console.log("form submitted");
+			}
+
 		}]);
 
 })();
