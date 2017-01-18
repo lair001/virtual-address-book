@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 20170116035504) do
     t.integer  "user_id"
     t.string   "last_name",      default: "", null: false
     t.string   "first_name",     default: "", null: false
+    t.string   "occupation",     default: "", null: false
+    t.string   "employer",       default: "", null: false
     t.string   "email",          default: "", null: false
     t.string   "phone",          default: "", null: false
     t.string   "address_line_1", default: "", null: false
