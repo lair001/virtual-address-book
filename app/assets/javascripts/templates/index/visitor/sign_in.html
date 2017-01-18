@@ -1,13 +1,19 @@
-Sign in level
+<div class="global-jumbotron text-center">
 
-<form>
+	<form class="global-form quarter-width">
 
-	<label for="username">Username</label><br>
-	<input ng-model="signIn.user.username" id="username"><br>
+		<div class="form-group">
+			<label for="username">Username</label><br>
+			<input ng-model="signIn.user.username" class="form-control global-form-input" id="username">
+		</div>
 
-	<label for="password">Password</label><br>
-	<input ng-model="signIn.user.password" id="password"><br>
+		<div class="form-group">
+			<label for="password">Password</label><br>
+			<input ng-model="signIn.user.password" class="form-control global-form-input" id="password">
+		</div>
 
-	<input type="submit" ng-click="signIn.submit($event);">
+		<input type="submit" ng-click="signIn.submit($event);" class="btn btn-default global-form-btn">
 
-</form>
+	</form>
+
+</div>

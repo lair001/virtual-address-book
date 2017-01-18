@@ -5,3 +5,11 @@
 .text-center {
 	text-align: center;
 }
+
+.quarter-width {
+	width: 25%;
+}
+
+.global-form {
+	@include center-block;
+}
