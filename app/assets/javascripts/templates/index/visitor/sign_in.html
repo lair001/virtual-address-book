@@ -1,5 +1,11 @@
 <div class="global-jumbotron text-center">
 
+	<div ng-if="signIn.errorTitle">
+		<div class="form-group">
+			<label>{{ signIn.errorTitle }}</label>
+		</div>
+	</div>
+
 	<form class="global-form quarter-width">
 
 		<div class="form-group">
