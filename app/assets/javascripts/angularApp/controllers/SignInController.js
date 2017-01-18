@@ -21,7 +21,6 @@
 
 			signIn.submit = function signInSubmit($event) {
 				$event.preventDefault();
-				console.log("form submitted");
 				$http({
 					method: "POST",
 					data: signIn.user,
@@ -32,10 +31,6 @@
 					$rootScope.currentUser = response.data;
 					$state.go('index.signed_in.contacts');
 				}, function onFailedSignIn(response) {
-					console.log('in failure callback');
-					console.log(response);
-					console.log(response.data);
-					console.log(response.data.errors);
 					signIn.errorTitle = response.data.errors[0].title;
 				});
 			};
