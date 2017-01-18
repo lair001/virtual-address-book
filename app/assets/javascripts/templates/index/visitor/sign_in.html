@@ -4,12 +4,12 @@
 
 		<div class="form-group">
 			<label for="username">Username</label><br>
-			<input ng-model="signIn.user.username" class="form-control global-form-input" id="username">
+			<input type="text" ng-model="signIn.user.username" class="form-control global-form-input" id="username">
 		</div>
 
 		<div class="form-group">
 			<label for="password">Password</label><br>
-			<input ng-model="signIn.user.password" class="form-control global-form-input" id="password">
+			<input type="password" ng-model="signIn.user.password" class="form-control global-form-input" id="password">
 		</div>
 
 		<input type="submit" ng-click="signIn.submit($event);" class="btn btn-default global-form-btn">
