@@ -20,7 +20,7 @@ class User < ApplicationRecord
 		absence_of_whitespace_in :password
 	end
 
-	enum role: [:banned, :normal, :administrator]
+	enum role: [:banned, :administrator, :free]
 
 	def destroy_contacts
 		self.contacts.destroy_all
