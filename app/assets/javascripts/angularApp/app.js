@@ -29,7 +29,8 @@
 				})
 				.state('index.signed_in', {
 					url: 'signed_in',
-					templateUrl: 'index/signed_in.html'
+					templateUrl: 'index/signed_in.html',
+					controller: 'SignInController as signedIn'
 				})
 				.state('index.signed_in.account', {
 					url: '/account',
