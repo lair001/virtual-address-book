@@ -12,7 +12,7 @@ class Contact < ApplicationRecord
 	validates :address_line_2, { format: { with: contact_address_line_regex } }
 	validates :city, { format: { with: /\A[\w .]{,25}\z/ } }
 	validates :state, { format: { with: /\A([A-Z]{2}|)\z/ } }
-	validates :zip_code, { format: { with: /\A(\d{5}-\d{4}|\d{5}|)\z/ }  }
+	validates :zip_code, { format: { with: /\A(\d{5}-\d{4}|\d{5}|)\z/ } }
 
 	def last_name=(last_name)
 		write_attribute(:last_name, self.class.format_last_name(last_name))
@@ -20,6 +20,14 @@ class Contact < ApplicationRecord
 
 	def first_name=(first_name)
 		write_attribute(:first_name, self.class.format_first_name(first_name))
+	end
+
+	def occupation=(occupation)
+		write_attribute(:occupation, self.class.format_occupation(occupation))
+	end
+
+	def employer=(employer)
+		write_attribute(:employer, self.class.format_employer(employer))
 	end
 
 	def city=(city)
@@ -48,6 +56,14 @@ class Contact < ApplicationRecord
 
 	def self.format_first_name(first_name)
 		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(first_name).capitalize
+	end
+
+	def self.format_occupation(occupation)
+		format_city(occupation)
+	end
+
+	def self.format_employer(employer)
+		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(employer).split(' ').collect{ |word| word == word.upcase ? word : word.capitalize }.join(' ')
 	end
 
 	def self.format_phone(phone)
