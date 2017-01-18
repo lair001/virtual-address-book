@@ -9,6 +9,7 @@
 }
 
 #credit_box {
+	@include center-block;
 	text-align: center;
 	width: 25%;
 }
