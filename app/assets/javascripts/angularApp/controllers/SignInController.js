@@ -12,7 +12,8 @@
 				password: ""
 			}
 
-			signIn.submit = function signInSubmit() {
+			signIn.submit = function signInSubmit($event) {
+				$event.preventDefault();
 				console.log("form submitted");
 			}
 
