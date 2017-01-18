@@ -20,6 +20,14 @@ class ApplicationRecord < ActiveRecord::Base
 		/\A\w{,25}\z/
 	end
 
+	def self.occupation_regex
+		self.contact_name_regex
+	end
+
+	def self.employer_regex
+		/\A\w{,50}\z/
+	end
+
 	def self.contact_address_line_regex
 		/\A[\w .]{,50}\z/
 	end

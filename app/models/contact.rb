@@ -2,8 +2,10 @@ class Contact < ApplicationRecord
 
 	belongs_to :user
 
-	validates :last_name, format: { with: contact_name_regex }
-	validates :first_name, format: { with: contact_name_regex }
+	validates :last_name, { format: { with: contact_name_regex } }
+	validates :first_name, { format: { with: contact_name_regex } }
+	validates :occupation, { format: { with: occupation_regex } }
+	validates :employer, { format: { with: employer_regex } }
 	validates :email, { length: { maximum: 50 }, format: { with: email_regex } }
 	validates :phone, { format: { with: /\A(\(\d{3}\)\d{3}-\d{4}|)\z/ } }
 	validates :address_line_1, { format: { with: contact_address_line_regex } }
