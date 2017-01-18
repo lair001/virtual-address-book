@@ -12,7 +12,7 @@
 				password: ""
 			};
 
-			signIn.user = Object.assign({}, signIn.newUser)
+			signIn.user = Object.assign({}, signIn.newUser);
 
 			signIn.submit = function signInSubmit($event) {
 				$event.preventDefault();
@@ -23,7 +23,7 @@
 					url: "/sessions"
 				}).then(function onSuccessfulSignIn(response) {
 					signIn.errorTitle = undefined;
-					signIn.user = Object.assign({}, signIn.newUser)
+					signIn.user = Object.assign({}, signIn.newUser);;
 					$rootScope.currentUser = response.data;
 					$state.go('index.signed_in.contacts');
 				}, function onFailedSignIn(response) {
