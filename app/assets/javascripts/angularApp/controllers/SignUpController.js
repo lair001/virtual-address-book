@@ -27,7 +27,7 @@
 					$rootScope.currentUser = response.data;
 					$state.go('index.signed_in.contacts');
 				}, function onFailedSignUp(response) {
-					signUp.errorDetail = response.data.errors[0].detail.join('<br>');
+					signUp.errorsDetail = response.data.errors[0].detail;
 				});
 			};
 

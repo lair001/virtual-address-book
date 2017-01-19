@@ -1,8 +1,12 @@
 <div class="global-jumbotron text-center">
 
-	<div ng-if="signUp.errorDetail">
+	<div ng-if="signUp.errorsDetail">
 		<div class="form-group">
-			<label>{{ signUp.errorDetail }}</label>
+			<label>
+				<div ng-repeat="error in signUp.errorsDetail">
+					{{ error }}
+				</div>
+			</label>
 		</div>
 	</div>
 
