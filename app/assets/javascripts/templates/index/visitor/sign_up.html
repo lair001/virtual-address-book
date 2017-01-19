@@ -10,11 +10,28 @@
 		</div>
 	</div>
 
-	<form class="global-form quarter-width">
+	<form class="global-form quarter-width" name="form">
 
 		<div class="form-group">
 			<label for="username">Username</label><br>
-			<input type="text" ng-model="signUp.user.username" class="form-control global-form-input" id="username">
+			<input type="text" ng-model="signUp.user.username" class="form-control global-form-input" id="username" name="username" minlength="2" maxlength="50" ng-pattern="/[\s!-ϿԱ-֏ἀ-῾\u2003₠-₾]+/" required>
+		</div>
+
+		<div class="form-group" ng-messages="form.username.$error" ng-if="form.username.$touched && form.username.$invalid">
+			<label>
+				<div ng-message="required">
+					Username is required!
+				</div>
+				<div ng-message="minlength">
+					Username must be at least 2 characters!
+				</div>
+				<div ng-message="maxlength">
+					Username can be no longer than 50 characters!
+				</div>
+				<div ng-message="pattern">
+					Username must not have forbidden characters!
+				</div>
+			</label>
 		</div>
 
 		<div class="form-group">
