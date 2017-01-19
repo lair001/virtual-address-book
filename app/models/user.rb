@@ -22,6 +22,10 @@ class User < ApplicationRecord
 
 	enum role: [:banned, :administrator, :free]
 
+	def contacts_by_ascending_last_name
+		self.contacts.order(last_name: :asc)
+	end
+
 	def destroy_contacts
 		self.contacts.destroy_all
 	end
