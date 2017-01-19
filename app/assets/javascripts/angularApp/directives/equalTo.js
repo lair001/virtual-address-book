@@ -6,12 +6,12 @@
             restrict: 'A',
             require: "ngModel",
             scope: {
-                otherModelValue: "=equalTo"
+                otherModelValueObject: "=equalTo"
             },
             link: function(scope, element, attributes, ngModel) {
 
                 ngModel.$validators.equalTo = function(modelValue) {
-                    return modelValue == scope.otherModelValue;
+                    return modelValue == scope.otherModelValueObject.$modelValue;
                 };
 
                 scope.$watch("otherModelValue", function() {
@@ -22,7 +22,7 @@
     };
 
     angular
-        .module(app)
+        .module('app')
         .directive("equalTo", equalTo);
 
 })();
