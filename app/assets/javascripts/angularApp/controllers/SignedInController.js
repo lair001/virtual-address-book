@@ -5,6 +5,11 @@
 	angular
 		.module('app')
 		.controller('SignedInController', ['$rootScope', '$http', '$state', function SignedInController($rootScope, $http, $state) {
+
+			if (!$rootScope.currentUser) {
+				$state.go('index.visitor.welcome');
+			}
+
 			var signedIn = this;
 
 			signedIn.signOut = function singedInSignOut($event) {
