@@ -1,20 +1,24 @@
-function absenceOfForbiddenCharacters() {
+(function() {
 
-	return {
+	function absenceOfForbiddenCharacters() {
 
-		restrict: 'A',
-		require: 'ngModel',
-		link: function (scope, element, attrs, ngModel) {
+		return {
 
-			ngModel.$validators.absenceOfForbiddenCharacters = function (value) {
-				return /[\s!-ϿԱ-֏ἀ-῾\u2003₠-₾]+$/i.test(value);
-			};
+			restrict: 'A',
+			require: 'ngModel',
+			link: function (scope, element, attrs, ngModel) {
 
-		}
+				ngModel.$validators.absenceOfForbiddenCharacters = function(value) {
+					return /[\s!-ϿԱ-֏ἀ-῾\u2003₠-₾]+$/i.test(value);
+				};
 
-	};
-}
+			}
 
-angular
-	.module('app')
-	.directive('absenceOfForbiddenCharacters', absenceOfForbiddenCharacters);
+		};
+	}
+
+	angular
+		.module('app')
+		.directive('absenceOfForbiddenCharacters', absenceOfForbiddenCharacters);
+
+})();
