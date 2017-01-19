@@ -6,10 +6,6 @@
 		.module('app')
 		.controller('SignInController', ['$rootScope', '$http', '$state', function SignInController($rootScope, $http, $state) {
 
-			if ($rootScope.currentUser) {
-				$state.go('index.signed_in.contacts');
-			}
-
 			var signIn = this;
 
 			signIn.newUser = {

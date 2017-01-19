@@ -12,7 +12,8 @@
 				})
 				.state('index.visitor', {
 					url: 'visitor',
-					templateUrl: 'index/visitor.html'
+					templateUrl: 'index/visitor.html',
+					controller: 'VisitorController as visitor'
 				})
 				.state('index.visitor.sign_in', {
 					url: '/sign_in',
