@@ -11,7 +11,7 @@
             link: function(scope, element, attributes, ngModel) {
 
                 ngModel.$validators.equalTo = function(modelValue) {
-                    return modelValue == scope.otherModelValueObject.$modelValue;
+                    return modelValue === scope.otherModelValueObject.$modelValue;
                 };
 
                 scope.$watch("otherModelValue", function() {
