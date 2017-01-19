@@ -1,22 +1,28 @@
-function equalTo() {
-    return {
-        require: "ngModel",
-        scope: {
-            otherModelValue: "=compareTo"
-        },
-        link: function(scope, element, attributes, ngModel) {
-             
-            ngModel.$validators.compareTo = function(modelValue) {
-                return modelValue == scope.otherModelValue;
-            };
- 
-            scope.$watch("otherModelValue", function() {
-                ngModel.$validate();
-            });
-        }
+(function() {
+
+    function equalTo() {
+        return {
+
+            restrict: 'A',
+            require: "ngModel",
+            scope: {
+                otherModelValue: "=equalTo"
+            },
+            link: function(scope, element, attributes, ngModel) {
+
+                ngModel.$validators.equalTo = function(modelValue) {
+                    return modelValue == scope.otherModelValue;
+                };
+
+                scope.$watch("otherModelValue", function() {
+                    ngModel.$validate();
+                });
+            }
+        };
     };
-};
- 
-angular
-    .module(app)
-    .directive("equalTo", equalTo);
+
+    angular
+        .module(app)
+        .directive("equalTo", equalTo);
+
+})();
