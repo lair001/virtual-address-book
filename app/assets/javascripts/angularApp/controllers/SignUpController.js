@@ -21,7 +21,7 @@
 				$event.preventDefault();
 				$http({
 					method: "POST",
-					data: signUp.user,
+					data: { user: signUp.user },
 					url: "/users"
 				}).then(function onSuccessfulSignUp(response) {
 					$rootScope.currentUser = response.data;
