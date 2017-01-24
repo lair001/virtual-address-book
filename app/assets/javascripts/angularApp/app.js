@@ -40,7 +40,8 @@
 				})
 				.state('index.signed_in.accounts.show', {
 					url: '/:id',
-					templateUrl: 'index/signed_in/accounts/show.html'
+					templateUrl: 'index/signed_in/accounts/show.html',
+					controller: 'AccountsShowController as accountsShow'
 				})
 				.state('index.signed_in.accounts.show.edit', {
 					url: '/edit',
