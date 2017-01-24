@@ -1,4 +1,25 @@
-Account Show level
-<a ui-sref="index.signed_in.accounts.show.edit({id: currentUser.id})">Edit Account</a>
-<a ui-sref="index.signed_in.accounts.show.delete({id: currentUser.id})">Delete Account</a>
-<div ui-view></div>
+<div class="global-jumbotron text-center">
+	<div class="row">
+		<div class="col-xs-6">
+			<div class="form-group">
+				<label>Username</label><br>
+				{{ accountsShow.user.username }}
+			</div>
+			<div class="form-group">
+				<label>Email</label><br>
+				{{ accountsShow.user.email }}
+			</div>
+			<div class="row">
+				<div class="col-xs-6">
+					<a ui-sref="index.signed_in.accounts.show.edit({id: currentUser.id})">Edit Account</a>
+				</div>
+				<div class="col-xs-6">
+					<a ui-sref="index.signed_in.accounts.show.delete({id: currentUser.id})">Delete Account</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-6">
+			<div ui-view></div>
+		</div>
+	</div>
+</div>
