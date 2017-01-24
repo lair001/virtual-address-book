@@ -9,9 +9,9 @@
 			var accountsShow = this;
 
 			accountsShow.newUser = {
-				id = $rootScope.id,
-				username = $rootScope.username,
-				email = $rootScope.email
+				id: $rootScope.currentUser.id,
+				username: $rootScope.currentUser.username,
+				email: $rootScope.currentUser.email
 			};
 
 			accountsShow.user = Object.assign({}, accountsShow.newUser);
