@@ -15,6 +15,20 @@
 			<a ui-sref="index.signed_in.accounts.show.edit({id: currentUser.id})">Edit Account</a> | <a ui-sref="index.signed_in.accounts.show.delete({id: currentUser.id})">Delete Account</a>
 		</div>
 		<div class="col-xs-6">
+			<div ng-if="accountsShow.errorTitle">
+				<div class="form-group">
+					<label>{{ accountsShow.errorTitle }}</label>
+				</div>
+			</div>
+			<div ng-if="accountsShow.errorsDetail">
+				<div class="form-group">
+					<label>
+						<div ng-repeat="error in accountsShow.errorsDetail">
+							{{ error }}
+						</div>
+					</label>
+				</div>
+			</div>
 			<div ui-view></div>
 		</div>
 	</div>
