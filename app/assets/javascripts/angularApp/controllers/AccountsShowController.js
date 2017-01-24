@@ -19,6 +19,24 @@
 
 			accountsShow.user = Object.assign({}, accountsShow.newUser);
 
+			accountsShow.submitEdit = function signInSubmit($event) {
+				$event.preventDefault();
+				$http({
+					method: "PATCH",
+					data: accountsShow.user,
+					url: "/users/" + accountsShow.user.id
+				}).then(function onSuccessfulAccountsShowEdit(response) {
+					// signIn.errorTitle = undefined;
+					// signIn.user = Object.assign({}, signIn.newUser);;
+					$rootScope.currentUser.username = response.data.username;
+					$rootScope.currentUser.email = response.data.email;
+					$state.go('index.signed_in.accounts.show');
+				}, function onFailedAccountsShowEdit(response) {
+					accountsShow.errorTitle = response.data.errors[0].title;
+					accountsShow.errorsDetail = response.data.errors[0].detail;
+				});
+			};
+
 		}]);
 
 })();
