@@ -4,7 +4,7 @@
 
 	angular
 		.module('app')
-		.controller('SignInController', ['$rootScope', '$http', '$state', '$cookies', function SignInController($rootScope, $http, $state, $cookies) {
+		.controller('SignInController', ['$rootScope', '$http', '$state', function SignInController($rootScope, $http, $state) {
 
 			var signIn = this;
 
@@ -25,7 +25,6 @@
 					// signIn.errorTitle = undefined;
 					// signIn.user = Object.assign({}, signIn.newUser);;
 					$rootScope.currentUser = response.data;
-					console.log($cookies.getAll());
 					$state.go('index.signed_in.contacts');
 				}, function onFailedSignIn(response) {
 					signIn.errorTitle = response.data.errors[0].title;
