@@ -1,4 +1,7 @@
-Signed in level
-<a ui-sref="index.signed_in.account.edit">Edit Account</a>
+<div class ="global-jumbotron" id="global_title">
+	<h1>Welcome, <a ui-sref="index.signedIn.accounts.show({id: currentUser.id})">{{ currentUser.username }}</a>!</h1>
+	<h2><em>The simple solution for quickly and efficiently managing your contacts.</em></h2>
+</div>
+<a ui-sref="index.signed_in.accounts.edit">Edit Account</a>
 <a href="#" ng-click="signedIn.signOut($event);">Sign Out</a>
 <div ui-view></div>

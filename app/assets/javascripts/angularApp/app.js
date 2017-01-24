@@ -34,13 +34,21 @@
 					templateUrl: 'index/signed_in.html',
 					controller: 'SignedInController as signedIn'
 				})
-				.state('index.signed_in.account', {
-					url: '/account',
-					templateUrl: 'index/signed_in/account.html'
+				.state('index.signed_in.accounts', {
+					url: '/accounts',
+					templateUrl: 'index/signed_in/accounts.html'
 				})
-				.state('index.signed_in.account.edit', {
+				.state('index.signed_in.accounts.show', {
+					url: '/:id',
+					templateUrl: 'index/signed_in/accounts/show.html'
+				})
+				.state('index.signed_in.accounts.show.edit', {
 					url: '/edit',
-					templateUrl: 'index/signed_in/account/edit.html'
+					templateUrl: 'index/signed_in/accounts/show/edit.html'
+				})
+				.state('index.signed_in.accounts.show.delete', {
+					url: '/delete',
+					templateUrl: 'index/signed_in/accounts/show/delete.html'
 				})
 				.state('index.signed_in.contacts', {
 					url: '/contacts',
