@@ -1,1 +1,10 @@
-Account Delete level
+<form class="global-form" name="form">
+
+	<div class="form-group">
+		<label for="current_password">Current Password</label>
+		<input type="password" ng-model="accountsShow.user.current_password" class="form-control global-form-input" name="current_password">
+	</div>
+
+	<input type="submit" ng-click="accountsShow.submitDelete($event);" class="btn btn-default global-form-btn" value="Delete Account">
+
+</form>
