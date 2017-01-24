@@ -4,7 +4,7 @@
 
 	angular
 		.module('app')
-		.controller('AccountsShowController', ['$rootScope', function AccountsShowController($rootScope) {
+		.controller('AccountsShowController', ['$rootScope', '$http', '$state', function AccountsShowController($rootScope, $http, $state) {
 
 			var accountsShow = this;
 
