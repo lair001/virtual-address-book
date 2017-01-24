@@ -53,7 +53,8 @@
 				})
 				.state('index.signed_in.contacts', {
 					url: '/contacts',
-					templateUrl: 'index/signed_in/contacts.html'
+					templateUrl: 'index/signed_in/contacts.html',
+					controller: 'ContactsController as contacts'
 				})
 				.state('index.signed_in.contacts.new', {
 					url: '/new',
