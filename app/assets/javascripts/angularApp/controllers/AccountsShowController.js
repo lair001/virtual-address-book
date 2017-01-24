@@ -42,7 +42,7 @@
 				if (confirm("Really delete your account?")) {
 					$http({
 						method: "DELETE",
-						data: { user: { current_password: accountsShow.user.current_password } },
+						params: { current_password: accountsShow.user.current_password },
 						url: "/users/" + accountsShow.user.id
 					}).then(function onSuccessfulAccountsShowDelete(response) {
 						// signIn.errorTitle = undefined;

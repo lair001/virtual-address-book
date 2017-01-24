@@ -29,7 +29,7 @@ class UsersController < JsonController
 
 	def destroy
 		@user = User.find(params[:id])
-		current_user.authenticate(params[:user][:current_password].strip)
+		current_user.authenticate(params[:current_password].strip)
 		authorize(@user)
 		@user.destroy
 		render json: {}, serializer: ResourceDestroyedSerializer
