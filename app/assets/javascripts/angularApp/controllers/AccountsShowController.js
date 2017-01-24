@@ -11,7 +11,10 @@
 			accountsShow.newUser = {
 				id: $rootScope.currentUser.id,
 				username: $rootScope.currentUser.username,
-				email: $rootScope.currentUser.email
+				email: $rootScope.currentUser.email,
+				current_password: "",
+				password: "",
+				password_confirmation: ""
 			};
 
 			accountsShow.user = Object.assign({}, accountsShow.newUser);
