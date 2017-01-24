@@ -12,7 +12,7 @@
 				<label>Email</label><br>
 				{{ accountsShow.user.email }}
 			</div>
-			<a ui-sref="index.signed_in.accounts.show.edit({id: currentUser.id})">Edit Account</a> | <a ui-sref="index.signed_in.accounts.show.delete({id: currentUser.id})">Delete Account</a>
+			<a ui-sref="index.signed_in.accounts.show.edit({id: accountsShow.user.id})">Edit Account</a> | <a ui-sref="index.signed_in.accounts.show.delete({id: accountsShow.user.id})">Delete Account</a>
 		</div>
 		<div class="col-xs-6">
 			<div ng-if="accountsShow.errorTitle">
