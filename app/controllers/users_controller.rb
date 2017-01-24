@@ -17,6 +17,7 @@ class UsersController < JsonController
 
 	def update
 		@user = User.find(params[:id])
+		current_user.authenticate(params[:current_password].strip)
 		authorize(@user)
 		if @user.update(user_params)
 			session[:security_code] = @user.security_code if @user == current_user
@@ -28,6 +29,7 @@ class UsersController < JsonController
 
 	def destroy
 		@user = User.find(params[:id])
+		current_user.authenticate(params[:current_password].strip)
 		authorize(@user)
 		@user.destroy
 		render json: {}, serializer: ResourceDestroyedSerializer
