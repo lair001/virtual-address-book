@@ -21,5 +21,4 @@
 .byebug_history
 
 # Ignore Secrets
-secrets.yml
 .env
