@@ -8,7 +8,7 @@
 
 			var contacts = this;
 
-			contacts.contacts = $rootScope.contacts;
+			contacts.contacts = $rootScope.currentUser.contacts;
 
 		}]);
 
