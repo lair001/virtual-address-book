@@ -23,7 +23,7 @@
 				$event.preventDefault();
 				$http({
 					method: "PATCH",
-					data: accountsShow.user,
+					data: { user: accountsShow.user},
 					url: "/users/" + accountsShow.user.id
 				}).then(function onSuccessfulAccountsShowEdit(response) {
 					// signIn.errorTitle = undefined;
