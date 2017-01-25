@@ -12,7 +12,7 @@
 			$scope.controller = signIn;
 			signIn.locals = {
 				submitButtonLabel: "Sign In",
-				onlyUsernameAndPassword: true
+				onlyUsernameAndPasswordFields: true
 			};
 			// end partial config
 
