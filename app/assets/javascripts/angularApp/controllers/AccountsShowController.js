@@ -30,6 +30,8 @@
 					// signIn.user = Object.assign({}, signIn.newUser);;
 					$rootScope.currentUser.username = response.data.username;
 					$rootScope.currentUser.email = response.data.email;
+					accountsShow.errorTitle = undefined;
+					accountsShow.errorsDetail = undefined;
 					$state.go('index.signed_in.accounts.show');
 				}, function onFailedAccountsShowEdit(response) {
 					accountsShow.errorTitle = response.data.errors[0].title;
