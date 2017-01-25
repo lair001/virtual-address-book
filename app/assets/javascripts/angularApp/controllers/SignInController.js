@@ -4,9 +4,17 @@
 
 	angular
 		.module('app')
-		.controller('SignInController', ['$rootScope', '$http', '$state', function SignInController($rootScope, $http, $state) {
+		.controller('SignInController', ['$rootScope', '$scope', '$http', '$state', function SignInController($rootScope, $scope, $http, $state) {
 
 			var signIn = this;
+
+			// begin partial config
+			$scope.controller = signIn;
+			signIn.locals = {
+				submitButtonLabel: "Sign In",
+				onlyUsernameAndPassword: true
+			};
+			// end partial config
 
 			signIn.newUser = {
 				username: "",
