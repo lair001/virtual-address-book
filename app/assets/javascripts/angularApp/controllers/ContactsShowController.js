@@ -18,6 +18,24 @@
 				}
 			}
 
+			contactsShow.deleteContact = function contactsShowDeleteContact($event) {
+				$event.preventDefault();
+				if (confirm("Really delete contact?")) {
+					$http({
+						method: "DELETE",
+						url: "/contacts/" + contactsShow.contact.id
+					}).then(function onSuccessfulContactsShowDelete(response) {
+						// signIn.errorTitle = undefined;
+						// signIn.user = Object.assign({}, signIn.newUser);;
+						parentContacts.splice(contactsShow.contactsIndex, 1);
+						$state.go("index.signed_in.contacts");
+					}, function onFailedContactsShowDelete(response) {
+						contactsShow.errorTitle = response.data.errors[0].title;
+						contactsShow.errorsDetail = response.data.errors[0].detail;
+					});
+				}
+			};
+
 		}]);
 
 })();
