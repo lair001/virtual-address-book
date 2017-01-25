@@ -8,15 +8,6 @@
 
 			var signUp = this;
 
-			// begin partial config
-			$scope.controller = signUp;
-			signUp.locals = {
-				submitButtonLabel: "Sign Up",
-				usernameValidation: true,
-				passwordValidation: true
-			};
-			// end partial config
-
 			signUp.newUser = {
 				username: "",
 				email: "",
@@ -39,6 +30,15 @@
 					signUp.errorsDetail = response.data.errors[0].detail;
 				});
 			};
+
+			// begin partial config
+			$scope.controller = signUp;
+			signUp.locals = {
+				submitButtonLabel: "Sign Up",
+				usernameValidation: true,
+				passwordValidation: true
+			};
+			// end partial config
 
 		}]);
 

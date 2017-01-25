@@ -8,14 +8,6 @@
 
 			var signIn = this;
 
-			// begin partial config
-			$scope.controller = signIn;
-			signIn.locals = {
-				submitButtonLabel: "Sign In",
-				onlyUsernameAndPasswordFields: true
-			};
-			// end partial config
-
 			signIn.newUser = {
 				username: "",
 				password: ""
@@ -38,6 +30,14 @@
 					signIn.errorTitle = response.data.errors[0].title;
 				});
 			};
+
+			// begin partial config
+			$scope.controller = signIn;
+			signIn.locals = {
+				submitButtonLabel: "Sign In",
+				onlyUsernameAndPasswordFields: true
+			};
+			// end partial config
 
 		}]);
 
