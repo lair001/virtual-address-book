@@ -9,8 +9,6 @@
 			var accountsShowDelete = this;
 
 			accountsShowDelete.user = $scope.accountsShow.user;
-			accountsShowDelete.errorTitle = $scope.accountsShow.errorTitle;
-			accountsShowDelete.errorsDetail = $scope.accountsShow.errorsDetail;
 
 			accountsShowDelete.submit = function accountsShowDeleteSubmit($event) {
 				$event.preventDefault();
@@ -25,8 +23,8 @@
 						$rootScope.currentUser = undefined
 						$state.go('index.visitor.welcome');
 					}, function onFailedAccountsShowDelete(response) {
-						accountsShowDelete.errorTitle = response.data.errors[0].title;
-						accountsShowDelete.errorsDetail = response.data.errors[0].detail;
+						$scope.accountsShow.errorTitle = response.data.errors[0].title;
+						$scope.accountsShow.errorsDetail = response.data.errors[0].detail;
 					});
 				}
 			};
