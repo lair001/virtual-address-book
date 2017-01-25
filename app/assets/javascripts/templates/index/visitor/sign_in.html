@@ -1,10 +1,6 @@
 <div class="global-jumbotron text-center">
 
-	<div ng-if="signIn.errorTitle">
-		<div class="form-group">
-			<label>{{ signIn.errorTitle }}</label>
-		</div>
-	</div>
+<div ng-include="'partials/messages/_error_title.html'"></div>
 
 	<div class="quarter-width center-block">
 
