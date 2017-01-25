@@ -13,13 +13,18 @@
                 },
                 link: function(scope, element, attributes, ngModel) {
 
-                    ngModel.$validators.notEqualTo = function(modelValue) {
-                        return modelValue !== scope.otherModelValueObject.$modelValue;
-                    };
+                    if (scope.otherModelValueObject) {
 
-                    scope.$watch("otherModelValue", function() {
-                        ngModel.$validate();
-                    });
+                        ngModel.$validators.notEqualTo = function(modelValue) {
+                            return modelValue !== scope.otherModelValueObject.$modelValue;
+                        };
+
+                        scope.$watch("otherModelValue", function() {
+                            ngModel.$validate();
+                        });
+
+                    }
+
                 }
             };
 
