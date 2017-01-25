@@ -1,2 +1,37 @@
-Show level
+<div class="form-group">
+	<label>Contact Information</label><br>
+</div>
+<div class="form-group">
+	<label>Name</label><br>
+	{{ contactsShow.contact.first_name + " " + contactsShow.contact.last_name }}
+</div>
+<div class="form-group" ng-if="contactsShow.contact.occupation.length !== 0">
+	<label>Occupation</label><br>
+	{{ contactsShow.contact.occupation }}
+</div>
+<div class="form-group" ng-if="contactsShow.contact.employer.length !== 0">
+	<label>Employer</label><br>
+	{{ contactsShow.contact.employer }}
+</div>
+<div class="form-group" ng-if="contactsShow.contact.email.length !== 0">
+	<label>Email</label><br>
+	{{ contactsShow.contact.email }}
+</div>
+<div class="form-group" ng-if="contactsShow.contact.phone.length !== 0">
+	<label>Phone</label><br>
+	{{ contactsShow.contact.phone }}
+</div>
+<div class="form-group" ng-if="contactsShow.contact.address_line_1.length !== 0 || contactsShow.contact.address_line_2.length !== 0 || contactsShow.contact.city.length !== 0 || contactsShow.contact.state.length !== 0 || contactsShow.contact.zip_code.length !== 0">
+	<label>Address</label><br>
+	<div ng-if="contactsShow.contact.address_line_1.length !== 0">
+		{{ contactsShow.contact.address_line_1 }}
+	</div>
+	<div ng-if="contactsShow.contact.address_line_2.length !== 0">
+		{{ contactsShow.contact.address_line_2 }}
+	</div>
+	<div ng-if="contactsShow.contact.city.length !== 0 || contactsShow.contact.state.length !== 0 || contactsShow.contact.zip_code.length !== 0">
+		{{ contactsShow.contact.city.length !== 0 ? contactsShow.contact.city + ", " : "" }}{{ contactsShow.contact.state.length !== 0 ? contactsShow.contact.state + " " : "" }}{{ contactsShow.contact.zip_code.length !== 0 ? contactsShow.contact.zip_code : "" }}
+	</div>
+</div>
+<a ui-sref="index.signed_in.contacts.show.edit({ id: contact.id })">Edit Contact</a> | <a href="#" ng-click="contactsShow.deleteContact($event);">Delete Contact</a>
 <div ui-view></div>
