@@ -78,6 +78,7 @@
 		<div class="form-group">
 			<label for="password">Password</label><br>
 			<input type="password" ng-model="controller.user.password" class="form-control global-form-input" name="password"
+				not-equal-to="form.current_password ? form.current_password : undefined"
 				minlength="6"
 				maxlength="72"
 				absence-of-forbidden-characters
@@ -101,6 +102,9 @@
 				</div>
 				<div ng-message="absenceOfForbiddenCharacters">
 					Password must not have forbidden characters!
+				</div>
+				<div ng-message="notEqualTo">
+					Password cannot match Current Password!
 				</div>
 			</label>
 		</div>
@@ -145,6 +149,6 @@
 
 	</div>
 
-	<button type="submit" ng-click="controller.submit($event);" class="btn btn-default global-form-btn">{{ controller.locals.submitButtonLabel }}</button>
+	<button type="submit" ng-click="controller.locals.submitMethod ? controller.locals.submitMethod($event) : controller.submit($event);" class="btn btn-default global-form-btn">{{ controller.locals.submitButtonLabel }}</button>
 
 </form>

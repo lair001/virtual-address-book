@@ -4,7 +4,7 @@
 
 	angular
 		.module('app')
-		.controller('AccountsShowController', ['$rootScope', '$http', '$state', function AccountsShowController($rootScope, $http, $state) {
+		.controller('AccountsShowController', ['$rootScope', '$scope', '$http', '$state', function AccountsShowController($rootScope, $scope, $http, $state) {
 
 			var accountsShow = this;
 
@@ -55,6 +55,17 @@
 					});
 				}
 			};
+
+			// begin partial config
+			$scope.controller = accountsShow;
+			accountsShow.locals = {
+				submitButtonLabel: "Edit Account",
+				usernameValidation: true,
+				passwordValidation: true,
+				currentPasswordField: true,
+				submitMethod: accountsShow.submitEdit
+			};
+			// end partial config
 
 		}]);
 
