@@ -1,0 +1,9 @@
+<div ng-if="controller.errorsDetail">
+	<div class="form-group">
+		<label>
+			<div ng-repeat="error in controller.errorsDetail">
+				{{ error }}
+			</div>
+		</label>
+	</div>
+</div>

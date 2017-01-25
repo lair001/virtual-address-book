@@ -1,14 +1,6 @@
 <div class="global-jumbotron text-center">
 
-	<div ng-if="signUp.errorsDetail">
-		<div class="form-group">
-			<label>
-				<div ng-repeat="error in signUp.errorsDetail">
-					{{ error }}
-				</div>
-			</label>
-		</div>
-	</div>
+<div ng-include="'partials/messages/_errors_detail.html'"></div>
 
 	<div class="quarter-width center-block">
 
