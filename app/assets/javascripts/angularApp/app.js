@@ -49,7 +49,8 @@
 				})
 				.state('index.signed_in.accounts.show.delete', {
 					url: '/delete',
-					templateUrl: 'index/signed_in/accounts/show/delete.html'
+					templateUrl: 'index/signed_in/accounts/show/delete.html',
+					controller: 'AccountsShowDeleteController as accountsShowDelete'
 				})
 				.state('index.signed_in.contacts', {
 					url: '/contacts',

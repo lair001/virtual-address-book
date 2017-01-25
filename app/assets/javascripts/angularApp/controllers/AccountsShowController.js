@@ -37,25 +37,6 @@
 				});
 			};
 
-			accountsShow.submitDelete = function accountsShowSubmitDelete($event) {
-				$event.preventDefault();
-				if (confirm("Really delete your account?")) {
-					$http({
-						method: "DELETE",
-						params: { current_password: accountsShow.user.current_password },
-						url: "/users/" + accountsShow.user.id
-					}).then(function onSuccessfulAccountsShowDelete(response) {
-						// signIn.errorTitle = undefined;
-						// signIn.user = Object.assign({}, signIn.newUser);;
-						$rootScope.currentUser = undefined
-						$state.go('index.visitor.welcome');
-					}, function onFailedAccountsShowDelete(response) {
-						accountsShow.errorTitle = response.data.errors[0].title;
-						accountsShow.errorsDetail = response.data.errors[0].detail;
-					});
-				}
-			};
-
 			// begin partial config
 			$scope.controller = accountsShow;
 			accountsShow.locals = {
