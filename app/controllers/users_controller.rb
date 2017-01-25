@@ -17,22 +17,28 @@ class UsersController < JsonController
 
 	def update
 		@user = User.find(params[:id])
-		current_user.authenticate(params[:user][:current_password].strip)
-		authorize(@user)
-		if @user.update(user_params)
-			session[:security_code] = @user.security_code if @user == current_user
-			render json: @user
+		if current_user.authenticate(params[:user][:current_password].strip)
+			authorize(@user)
+			if @user.update(user_params)
+				session[:security_code] = @user.security_code if @user == current_user
+				render json: @user
+			else
+				render json: @user, status: 422, serializer: ModelErrorsSerializer
+			end
 		else
-			render json: @user, status: 422, serializer: ModelErrorsSerializer
+			render json: {}, status: 403, serializer: InvalidCredentialsSerializer
 		end
 	end
 
 	def destroy
 		@user = User.find(params[:id])
-		current_user.authenticate(params[:current_password].strip)
-		authorize(@user)
-		@user.destroy
-		render json: {}, serializer: ResourceDestroyedSerializer
+		if current_user.authenticate(params[:current_password].strip)
+			authorize(@user)
+			@user.destroy
+			render json: {}, serializer: ResourceDestroyedSerializer
+		else
+			render json: {}, status: 403, serializer: InvalidCredentialsSerializer
+		end
 	end
 
 private
