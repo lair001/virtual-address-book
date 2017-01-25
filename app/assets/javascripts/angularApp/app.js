@@ -62,7 +62,8 @@
 				})
 				.state('index.signed_in.contacts.show', {
 					url: '/:id',
-					templateUrl: 'index/signed_in/contacts/show.html'
+					templateUrl: 'index/signed_in/contacts/show.html',
+					controller: 'ContactsShowController as contactsShow'
 				})
 				.state('index.signed_in.contacts.show.edit', {
 					url: '/edit',
