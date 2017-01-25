@@ -6,6 +6,14 @@
 	text-align: center;
 }
 
+.center-block {
+	@include center-block;
+}
+
+.half-width {
+	width: 50%;
+}
+
 .quarter-width {
 	width: 25%;
 }
