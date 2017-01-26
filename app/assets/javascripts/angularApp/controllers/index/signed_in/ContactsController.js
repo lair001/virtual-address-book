@@ -38,6 +38,7 @@
 					contacts.contact = Object.assign({}, contacts.newContact);
 					$state.go('index.signed_in.contacts.show', { id: response.data.id });
 				}, function onFailedContactsSubmit(response) {
+					contacts.errorTitle = response.data.errors[0].title;
 					contacts.errorsDetail = response.data.errors[0].detail;
 				});
 			};
