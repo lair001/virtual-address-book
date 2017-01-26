@@ -2,7 +2,7 @@
 
     angular
         .module('app')
-        .directive("notEqualTo", [function notEqualTo() {
+        .directive("notEqualTo", [function NotEqualTo() {
 
             return {
 

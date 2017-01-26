@@ -2,7 +2,7 @@
 
 	angular
 		.module('app')
-		.directive('absenceOfWhitespace', [function absenceOfWhitespace() {
+		.directive('absenceOfWhitespace', [function AbsenceOfWhitespace() {
 
 			return {
 

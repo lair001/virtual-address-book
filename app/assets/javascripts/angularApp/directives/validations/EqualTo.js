@@ -2,7 +2,7 @@
 
     angular
         .module('app')
-        .directive("equalTo", [function equalTo() {
+        .directive("equalTo", [function EqualTo() {
 
             return {
 

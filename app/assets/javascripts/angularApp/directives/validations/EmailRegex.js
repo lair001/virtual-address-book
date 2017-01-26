@@ -2,7 +2,7 @@
 
 	angular
 		.module('app')
-		.directive('emailRegex', [function emailRegex() {
+		.directive('emailRegex', [function EmailRegex() {
 
 			return {
 

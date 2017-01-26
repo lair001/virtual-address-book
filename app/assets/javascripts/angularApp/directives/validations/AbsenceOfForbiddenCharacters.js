@@ -2,7 +2,7 @@
 
 	angular
 		.module('app')
-		.directive('absenceOfForbiddenCharacters', [function absenceOfForbiddenCharacters() {
+		.directive('absenceOfForbiddenCharacters', [function AbsenceOfForbiddenCharacters() {
 
 			return {
 
