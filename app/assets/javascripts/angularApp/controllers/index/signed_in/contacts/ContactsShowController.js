@@ -38,7 +38,7 @@
 
 			// begin partial config
 			$scope.controller = contactsShow;
-			contacts.locals = {
+			contactsShow.locals = {
 				submitButtonLabel: "Edit Contact",
 				submitMethod: contactsShow.submitEdit
 			};
