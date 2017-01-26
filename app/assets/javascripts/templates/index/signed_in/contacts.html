@@ -5,12 +5,12 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-6">
+		<div class="col-xs-4">
 			<div ng-repeat="contact in contacts.contacts | orderBy:'last_name'">
 				<a ui-sref="index.signed_in.contacts.show({ id: contact.id })">{{ contact.last_name }}, {{ contact.first_name }}</a><br>
 			</div>
 		</div>
-		<div class ="col-xs-6 text-center">
+		<div class ="col-xs-8 text-center">
 			<div ui-view></div>
 		</div>
 	</div>
