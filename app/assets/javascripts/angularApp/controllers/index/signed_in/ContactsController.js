@@ -11,7 +11,6 @@
 			contacts.contacts = $rootScope.currentUser.contacts;
 
 			contacts.newContact = {
-				user_id: $rootScope.currentUser.id,
 				last_name: "",
 				first_name: "",
 				occupation: "",
