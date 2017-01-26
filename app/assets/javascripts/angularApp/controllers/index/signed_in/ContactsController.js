@@ -42,6 +42,13 @@
 				});
 			};
 
+			// begin partial config
+			$scope.controller = contacts;
+			contacts.locals = {
+				submitButtonLabel: "Create Contact"
+			};
+			// end partial config
+
 		}]);
 
 })();
