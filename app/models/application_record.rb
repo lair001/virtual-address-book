@@ -25,7 +25,7 @@ class ApplicationRecord < ActiveRecord::Base
 	end
 
 	def self.employer_regex
-		/\A[\w .-,]{,50}\z/
+		/\A[\w .,-]{,50}\z/
 	end
 
 	def self.contact_address_line_regex
