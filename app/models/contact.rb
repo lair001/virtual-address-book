@@ -67,7 +67,7 @@ class Contact < ApplicationRecord
 	end
 
 	def self.format_phone(phone)
-		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(phone).split('').keep_if{ |char| char.match(/\d/) }.insert(6, '-').insert(3, ')').insert(0, '(').join('')
+		phone.blank? ? "" : strip_convert_whitespace_to_spaces_and_trim_whitespace_in(phone).split('').keep_if{ |char| char.match(/\d/) }.insert(6, '-').insert(3, ')').insert(0, '(').join('')
 	end
 
 	def self.format_city(city)
