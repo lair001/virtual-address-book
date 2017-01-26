@@ -27,6 +27,20 @@
 
 			contacts.contact = Object.assign({}, contacts.newContact);
 
+			contacts.submit = function contactsSubmit($event) {
+				$event.preventDefault();
+				$http({
+					method: "POST",
+					data: { contact: contacts.contact },
+					url: "/contacts"
+				}).then(function onSuccessfulContactsSubmit(response) {
+					contacts.contacts.push(response.data);
+					$state.go('index.signed_in.contacts.show', { id: response.data.id });
+				}, function onFailedContactsSubmit(response) {
+					contacts.errorsDetail = response.data.errors[0].detail;
+				});
+			};
+
 		}]);
 
 })();
