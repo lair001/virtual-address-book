@@ -11,7 +11,7 @@
 				required>
 		</div>
 
-		<div class="form-group" ng-messages="form.username.$error" ng-if="controller.locals.usernameValidation && form.username.$touched && form.username.$invalid">
+		<div class="form-group" ng-messages="form.username.$error" ng-if="(controller.locals.usernameValidation || form.username.$error.required) && form.username.$touched && form.username.$invalid">
 			<label>
 				<div ng-message="required">
 					Username is required!
@@ -95,7 +95,7 @@
 				required>
 		</div>
 
-		<div class="form-group" ng-messages="form.password.$error" ng-if="controller.locals.passwordValidation && form.password.$touched && form.password.$invalid">
+		<div class="form-group" ng-messages="form.password.$error" ng-if="(controller.locals.passwordValidation || form.password.$error.required) && form.password.$touched && form.password.$invalid">
 			<label>
 				<div ng-message="required">
 					Password is required!
