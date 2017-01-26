@@ -21,11 +21,11 @@ class ApplicationRecord < ActiveRecord::Base
 	end
 
 	def self.occupation_regex
-		/\A\w{,25}\z/
+		/\A[\w .]{,25}\z/
 	end
 
 	def self.employer_regex
-		/\A\w{,50}\z/
+		/\A[\w .]{,50}\z/
 	end
 
 	def self.contact_address_line_regex
