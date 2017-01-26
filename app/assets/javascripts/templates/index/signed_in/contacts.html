@@ -8,6 +8,10 @@
 		<div class="col-xs-3">
 		</div>
 		<div class="col-xs-3">
+			<div class="form-group">
+				<label for="last_name_search">Last Name Search</label><br>
+				<input type="text" ng-model="contacts.lastNameSearch" class="form-control global-form-input" id="last_name_search">
+			</div>
 		</div>
 		<div class="col-xs-3">
 		</div>
@@ -26,7 +30,7 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-4">
-			<div ng-repeat="contact in contacts.contacts | orderBy:'last_name'">
+			<div ng-repeat="contact in contacts.contacts | caseInsensitive:'last_name':contacts.lastNameSearch | orderBy:'last_name'">
 				<a ui-sref="index.signed_in.contacts.show({ id: contact.id })">{{ contact.last_name }}, {{ contact.first_name }}</a><br>
 			</div>
 		</div>
