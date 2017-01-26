@@ -9,3 +9,17 @@
 
 include FactoryGirl::Syntax::Methods
 require_all 'spec/spec_helper/config/faker'
+
+users = []
+
+users << create(:user, :administrator, username: 'lair001', email: 'lair001@gmail.com')
+users << create(:user, username: 'lair002', email: 'lair002@gmail.com')
+users << create(:user, :banned, username: 'lair003', email: 'lair003@gmail.com')
+
+users.each do |user|
+
+	80.times do
+		create(:contact, user: user)
+	end
+
+end
