@@ -4,7 +4,7 @@
 
 	angular
 		.module('app')
-		.controller('ContactsController', ['$rootScope', '$http', '$state', function ContactsController($rootScope, $http, $state) {
+		.controller('ContactsController', ['$rootScope', '$scope', '$http', '$state', function ContactsController($rootScope, $scope, $http, $state) {
 
 			var contacts = this;
 
