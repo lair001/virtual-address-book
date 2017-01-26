@@ -19,7 +19,10 @@ users << create(:user, :banned, username: 'lair003', email: 'lair003@gmail.com')
 users.each do |user|
 
 	80.times do
-		build(:contact, user: user)
+		begin
+			create(:contact, user: user)
+		rescue ActiveRecord::RecordInvalid
+		end
 	end
 
 end
