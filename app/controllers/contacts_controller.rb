@@ -1,7 +1,6 @@
 class ContactsController < JsonController
 
 	def create
-		binding.pry
 		@contact = Contact.new(contact_params)
 		@contact.user = current_user
 		if @contact.save
