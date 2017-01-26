@@ -1,219 +1,273 @@
 <form class="global-form" name="form">
 
-	<div class="form-group">
-		<label for="first_name">First Name</label><br>
-		<input type="text" ng-model="controller.contact.first_name" class="form-control global-form-input" name="first_name"
-			maxlength="25"
-			contact-name-regex
-			required>
+	<div class="row">
+		<div class="col-xs-6">
+
+			<div class="form-group">
+				<label for="first_name">First Name</label><br>
+				<input type="text" ng-model="controller.contact.first_name" class="form-control global-form-input" name="first_name"
+					maxlength="25"
+					contact-name-regex
+					required>
+			</div>
+
+			<div class="form-group" ng-messages="form.first_name.$error" ng-if="form.first_name.$touched && form.first_name.$invalid">
+				<label>
+					<div ng-message="required">
+						First Name is required!
+					</div>
+					<div ng-message="maxlength">
+						First Name can be no longer than 25 characters!
+					</div>
+					<div ng-message="contactNameRegex">
+						First Name must have proper format!
+					</div>
+				</label>
+			</div>
+
+		</div>
+		<div class="col-xs-6">
+
+			<div class="form-group">
+				<label for="last_name">Last Name</label><br>
+				<input type="text" ng-model="controller.contact.last_name" class="form-control global-form-input" name="last_name"
+					maxlength="25"
+					contact-name-regex
+					required>
+			</div>
+
+			<div class="form-group" ng-messages="form.last_name.$error" ng-if="form.last_name.$touched && form.last_name.$invalid">
+				<label>
+					<div ng-message="required">
+						Last Name is required!
+					</div>
+					<div ng-message="maxlength">
+						Last Name can be no longer than 25 characters!
+					</div>
+					<div ng-message="contactNameRegex">
+						Last Name must have proper format!
+					</div>
+				</label>
+			</div>
+
+		</div>
 	</div>
 
-	<div class="form-group" ng-messages="form.first_name.$error" ng-if="form.first_name.$touched && form.first_name.$invalid">
-		<label>
-			<div ng-message="required">
-				First Name is required!
+	<div class="row">
+		<div class="col-xs-6">
+
+			<div class="form-group">
+				<label for="occupation">Occupation</label><br>
+				<input type="text" ng-model="controller.contact.occupation" class="form-control global-form-input" name="occupation"
+					maxlength="25"
+					occupation-regex>
 			</div>
-			<div ng-message="maxlength">
-				First Name can be no longer than 25 characters!
+
+			<div class="form-group" ng-messages="form.occupation.$error" ng-if="form.occupation.$touched && form.occupation.$invalid">
+				<label>
+					<div ng-message="maxlength">
+						Occupation can be no longer than 25 characters!
+					</div>
+					<div ng-message="occupationRegex">
+						Occupation must have proper format!
+					</div>
+				</label>
 			</div>
-			<div ng-message="contactNameRegex">
-				First Name must have proper format!
+
+		</div>
+		<div class="col-xs-6">
+
+			<div class="form-group">
+				<label for="employer">Employer</label><br>
+				<input type="text" ng-model="controller.contact.employer" class="form-control global-form-input" name="employer"
+					maxlength="50"
+					employer-regex>
 			</div>
-		</label>
+
+			<div class="form-group" ng-messages="form.employer.$error" ng-if="form.employer.$touched && form.employer.$invalid">
+				<label>
+					<div ng-message="maxlength">
+						Employer can be no longer than 50 characters!
+					</div>
+					<div ng-message="employerRegex">
+						Employer must have proper format!
+					</div>
+				</label>
+			</div>
+
+		</div>
 	</div>
 
-	<div class="form-group">
-		<label for="last_name">Last Name</label><br>
-		<input type="text" ng-model="controller.contact.last_name" class="form-control global-form-input" name="last_name"
-			maxlength="25"
-			contact-name-regex
-			required>
+	<div class="row">
+		<div class="col-xs-6">
+
+			<div class="form-group">
+				<label for="email">Email</label><br>
+				<input type="email" ng-model="controller.contact.email" class="form-control global-form-input" name="email"
+					minlength="5"
+					maxlength="50"
+					absence-of-whitespace
+					absence-of-forbidden-characters
+					email-regex>
+			</div>
+
+			<div class="form-group" ng-messages="form.email.$error" ng-if="form.email.$touched && form.email.$invalid">
+				<label>
+					<div ng-message="minlength">
+						Email must be at least 5 characters!
+					</div>
+					<div ng-message="maxlength">
+						Email can be no longer than 50 characters!
+					</div>
+					<div ng-message="absenceOfWhitespace">
+						Email must not have Whitespace!
+					</div>
+					<div ng-message="absenceOfForbiddenCharacters">
+						Email must not have forbidden characters!
+					</div>
+					<div ng-message="emailRegex">
+						Email must have proper format!
+					</div>
+				</label>
+			</div>
+
+		</div>
+		<div class="col-xs-6">
+
+			<div class="form-group">
+				<label for="phone">Phone</label><br>
+				<input type="text" ng-model="controller.contact.phone" class="form-control global-form-input" name="phone"
+					phone-regex>
+			</div>
+
+			<div class="form-group" ng-messages="form.phone.$error" ng-if="form.phone.$touched && form.phone.$invalid">
+				<label>
+					<div ng-message="phoneRegex">
+						Phone must have 10 digits!
+					</div>
+				</label>
+			</div>
+
+		</div>
 	</div>
 
-	<div class="form-group" ng-messages="form.last_name.$error" ng-if="form.last_name.$touched && form.last_name.$invalid">
-		<label>
-			<div ng-message="required">
-				Last Name is required!
+	<div class="row">
+		<div class="col-xs-6">
+
+			<div class="form-group">
+				<label for="address_line_1">Address Line 1</label><br>
+				<input type="text" ng-model="controller.contact.address_line_1" class="form-control global-form-input" name="address_line_1"
+					maxlength="50"
+					contact-address-line-regex>
 			</div>
-			<div ng-message="maxlength">
-				Last Name can be no longer than 25 characters!
+
+			<div class="form-group" ng-messages="form.address_line_1.$error" ng-if="form.address_line_1.$touched && form.address_line_1.$invalid">
+				<label>
+					<div ng-message="maxlength">
+						Address Line 1 can be no longer than 50 characters!
+					</div>
+					<div ng-message="contactAddressLineRegex">
+						Address Line 1 must have proper format!
+					</div>
+				</label>
 			</div>
-			<div ng-message="contactNameRegex">
-				Last Name must have proper format!
+
+		</div>
+		<div class="col-xs-6">
+
+			<div class="form-group">
+				<label for="address_line_2">Address Line 2</label><br>
+				<input type="text" ng-model="controller.contact.address_line_2" class="form-control global-form-input" name="address_line_2"
+					maxlength="50"
+					contact-address-line-regex>
 			</div>
-		</label>
+
+			<div class="form-group" ng-messages="form.address_line_2.$error" ng-if="form.address_line_2.$touched && form.address_line_2.$invalid">
+				<label>
+					<div ng-message="maxlength">
+						Address Line 2 can be no longer than 50 characters!
+					</div>
+					<div ng-message="contactAddressLineRegex">
+						Address Line 2 must have proper format!
+					</div>
+				</label>
+			</div>
+
+		</div>
 	</div>
 
-	<div class="form-group">
-		<label for="occupation">Occupation</label><br>
-		<input type="text" ng-model="controller.contact.occupation" class="form-control global-form-input" name="occupation"
-			maxlength="25"
-			occupation-regex>
+	<div class="row">
+		<div class="col-xs-6">
+
+			<div class="form-group">
+				<label for="city">City</label><br>
+				<input type="text" ng-model="controller.contact.city" class="form-control global-form-input" name="city"
+					maxlength="25"
+					city-regex>
+			</div>
+
+			<div class="form-group" ng-messages="form.city.$error" ng-if="form.city.$touched && form.city.$invalid">
+				<label>
+					<div ng-message="maxlength">
+						City can be no longer than 25 characters!
+					</div>
+					<div ng-message="cityRegex">
+						City must have proper format!
+					</div>
+				</label>
+			</div>
+
+		</div>
+		<div class="col-xs-6">
+
+			<div class="form-group">
+				<label for="state">State</label><br>
+				<input type="text" ng-model="controller.contact.state" class="form-control global-form-input" name="state"
+					maxlength="2"
+					minlength="2"
+					state-regex>
+			</div>
+
+			<div class="form-group" ng-messages="form.state.$error" ng-if="form.state.$touched && form.state.$invalid">
+				<label>
+					<div ng-message="maxlength">
+						State can be no longer than 2 characters!
+					</div>
+					<div ng-message="minlength">
+						State must be at least 2 characters long!
+					</div>
+					<div ng-message="stateRegex">
+						State must be a 2 letter code!
+					</div>
+				</label>
+			</div>
+
+		</div>
 	</div>
 
-	<div class="form-group" ng-messages="form.occupation.$error" ng-if="form.occupation.$touched && form.occupation.$invalid">
-		<label>
-			<div ng-message="maxlength">
-				Occupation can be no longer than 25 characters!
-			</div>
-			<div ng-message="occupationRegex">
-				Occupation must have proper format!
-			</div>
-		</label>
-	</div>
+	<div class="row">
+		<div class="col-xs-6">
 
-	<div class="form-group">
-		<label for="employer">Employer</label><br>
-		<input type="text" ng-model="controller.contact.employer" class="form-control global-form-input" name="employer"
-			maxlength="50"
-			employer-regex>
-	</div>
+			<div class="form-group">
+				<label for="zip_code">Zip Code</label><br>
+				<input type="text" ng-model="controller.contact.zip_code" class="form-control global-form-input" name="zip_code"
+					zip-code-regex>
+			</div>
 
-	<div class="form-group" ng-messages="form.employer.$error" ng-if="form.employer.$touched && form.employer.$invalid">
-		<label>
-			<div ng-message="maxlength">
-				Employer can be no longer than 50 characters!
+			<div class="form-group" ng-messages="form.zip_code.$error" ng-if="form.zip_code.$touched && form.zip_code.$invalid">
+				<label>
+					<div ng-message="zipCodeRegex">
+						Zip Code must have proper format!
+					</div>
+				</label>
 			</div>
-			<div ng-message="employerRegex">
-				Employer must have proper format!
-			</div>
-		</label>
-	</div>
 
-	<div class="form-group">
-		<label for="email">Email</label><br>
-		<input type="email" ng-model="controller.contact.email" class="form-control global-form-input" name="email"
-			minlength="5"
-			maxlength="50"
-			absence-of-whitespace
-			absence-of-forbidden-characters
-			email-regex>
-	</div>
+		</div>
+		<div class="col-xs-6">
 
-	<div class="form-group" ng-messages="form.email.$error" ng-if="form.email.$touched && form.email.$invalid">
-		<label>
-			<div ng-message="minlength">
-				Email must be at least 5 characters!
-			</div>
-			<div ng-message="maxlength">
-				Email can be no longer than 50 characters!
-			</div>
-			<div ng-message="absenceOfWhitespace">
-				Email must not have Whitespace!
-			</div>
-			<div ng-message="absenceOfForbiddenCharacters">
-				Email must not have forbidden characters!
-			</div>
-			<div ng-message="emailRegex">
-				Email must have proper format!
-			</div>
-		</label>
-	</div>
+			<button type="submit" ng-click="controller.locals.submitMethod ? controller.locals.submitMethod($event) : controller.submit($event);" class="btn btn-default global-form-btn">{{ controller.locals.submitButtonLabel }}</button>
 
-	<div class="form-group">
-		<label for="phone">Phone</label><br>
-		<input type="text" ng-model="controller.contact.phone" class="form-control global-form-input" name="phone"
-			phone-regex>
+		</div>
 	</div>
-
-	<div class="form-group" ng-messages="form.phone.$error" ng-if="form.phone.$touched && form.phone.$invalid">
-		<label>
-			<div ng-message="phoneRegex">
-				Phone must have 10 digits!
-			</div>
-		</label>
-	</div>
-
-	<div class="form-group">
-		<label for="address_line_1">Address Line 1</label><br>
-		<input type="text" ng-model="controller.contact.address_line_1" class="form-control global-form-input" name="address_line_1"
-			maxlength="50"
-			contact-address-line-regex>
-	</div>
-
-	<div class="form-group" ng-messages="form.address_line_1.$error" ng-if="form.address_line_1.$touched && form.address_line_1.$invalid">
-		<label>
-			<div ng-message="maxlength">
-				Address Line 1 can be no longer than 50 characters!
-			</div>
-			<div ng-message="contactAddressLineRegex">
-				Address Line 1 must have proper format!
-			</div>
-		</label>
-	</div>
-
-	<div class="form-group">
-		<label for="address_line_2">Address Line 2</label><br>
-		<input type="text" ng-model="controller.contact.address_line_2" class="form-control global-form-input" name="address_line_2"
-			maxlength="50"
-			contact-address-line-regex>
-	</div>
-
-	<div class="form-group" ng-messages="form.address_line_2.$error" ng-if="form.address_line_2.$touched && form.address_line_2.$invalid">
-		<label>
-			<div ng-message="maxlength">
-				Address Line 2 can be no longer than 50 characters!
-			</div>
-			<div ng-message="contactAddressLineRegex">
-				Address Line 2 must have proper format!
-			</div>
-		</label>
-	</div>
-
-	<div class="form-group">
-		<label for="city">City</label><br>
-		<input type="text" ng-model="controller.contact.city" class="form-control global-form-input" name="city"
-			maxlength="25"
-			city-regex>
-	</div>
-
-	<div class="form-group" ng-messages="form.city.$error" ng-if="form.city.$touched && form.city.$invalid">
-		<label>
-			<div ng-message="maxlength">
-				City can be no longer than 25 characters!
-			</div>
-			<div ng-message="cityRegex">
-				City must have proper format!
-			</div>
-		</label>
-	</div>
-
-	<div class="form-group">
-		<label for="state">State</label><br>
-		<input type="text" ng-model="controller.contact.state" class="form-control global-form-input" name="state"
-			maxlength="2"
-			minlength="2"
-			state-regex>
-	</div>
-
-	<div class="form-group" ng-messages="form.state.$error" ng-if="form.state.$touched && form.state.$invalid">
-		<label>
-			<div ng-message="maxlength">
-				State can be no longer than 2 characters!
-			</div>
-			<div ng-message="minlength">
-				State must be at least 2 characters long!
-			</div>
-			<div ng-message="stateRegex">
-				State must be a 2 letter code!
-			</div>
-		</label>
-	</div>
-
-	<div class="form-group">
-		<label for="zip_code">Zip Code</label><br>
-		<input type="text" ng-model="controller.contact.zip_code" class="form-control global-form-input" name="zip_code"
-			zip-code-regex>
-	</div>
-
-	<div class="form-group" ng-messages="form.zip_code.$error" ng-if="form.zip_code.$touched && form.zip_code.$invalid">
-		<label>
-			<div ng-message="zipCodeRegex">
-				Zip Code must have proper format!
-			</div>
-		</label>
-	</div>
-
-	<button type="submit" ng-click="controller.locals.submitMethod ? controller.locals.submitMethod($event) : controller.submit($event);" class="btn btn-default global-form-btn">{{ controller.locals.submitButtonLabel }}</button>
 
 </form>
