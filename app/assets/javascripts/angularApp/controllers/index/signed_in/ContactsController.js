@@ -26,19 +26,19 @@
 
 			contacts.contact = Object.assign({}, contacts.newContact);
 
-			contacts.submit = function contactsSubmit($event) {
+			contacts.submitNew = function contactsSubmitNew($event) {
 				$event.preventDefault();
 				$http({
 					method: "POST",
 					data: { contact: contacts.contact },
 					url: "/contacts"
-				}).then(function onSuccessfulContactsSubmit(response) {
+				}).then(function onSuccessfulContactsSubmitNew(response) {
 					contacts.contacts.push(response.data);
 					contacts.contact = Object.assign({}, contacts.newContact);
 					contacts.errorTitle = undefined;
 					contacts.errorsDetail = undefined;
 					$state.go('index.signed_in.contacts.show', { id: response.data.id });
-				}, function onFailedContactsSubmit(response) {
+				}, function onFailedContactsSubmitNew(response) {
 					contacts.errorTitle = response.data.errors[0].title;
 					contacts.errorsDetail = response.data.errors[0].detail;
 				});
@@ -47,7 +47,8 @@
 			// begin partial config
 			$scope.controller = contacts;
 			contacts.locals = {
-				submitButtonLabel: "Create Contact"
+				submitButtonLabel: "Create Contact",
+				submitMethod: contacts.submitNew
 			};
 			// end partial config
 
