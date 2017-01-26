@@ -36,6 +36,14 @@
 				}
 			};
 
+			// begin partial config
+			$scope.controller = contactsShow;
+			contacts.locals = {
+				submitButtonLabel: "Edit Contact",
+				submitMethod: contactsShow.submitEdit
+			};
+			// end partial config
+
 		}]);
 
 })();
