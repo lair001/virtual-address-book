@@ -7,10 +7,10 @@ function CaseInsensitive() {
 
 		} else {
 
-			var lowerCaseQuery = query.toLowerCase();
+			var queryRegex = new RegExp("^" + query, "i");
 
 			return inputCollection.filter(function(inputElement) {
-				return inputElement[inputElementProperty].toLowerCase() === lowerCaseQuery;
+				return inputElement[inputElementProperty].match(queryRegex);
 			});
 
 		}
