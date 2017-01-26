@@ -11,7 +11,7 @@
 				link: function(scope, element, attrs, ngModel) {
 
 					ngModel.$validators.cityRegex = function(value) {
-						return /^[\w .]{,25}$/i.test(value);
+						return /^([\w .]{,25}|)$/i.test(value);
 					};
 
 				}
