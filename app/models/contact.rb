@@ -39,11 +39,11 @@ class Contact < ApplicationRecord
 	end
 
 	def address_line_1=(address_line)
-		write_attribute(:address_line_1, self.format_address_line(address_line))
+		write_attribute(:address_line_1, self.class.format_address_line(address_line))
 	end
 
 	def address_line_2=(address_line)
-		write_attribute(:address_line_2, self.format_address_line(address_line))
+		write_attribute(:address_line_2, self.class.format_address_line(address_line))
 	end
 
 	def state=(state)
