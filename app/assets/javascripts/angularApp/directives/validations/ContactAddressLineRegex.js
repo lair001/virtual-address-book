@@ -11,7 +11,7 @@
 				link: function(scope, element, attrs, ngModel) {
 
 					ngModel.$validators.contactAddressLineRegex = function(value) {
-						return /^([\w .#]{,50}|)$/i.test(value);
+						return /^[\w .#]{0,50}$/i.test(value);
 					};
 
 				}
