@@ -36,6 +36,8 @@
 				}).then(function onSuccessfulContactsSubmit(response) {
 					contacts.contacts.push(response.data);
 					contacts.contact = Object.assign({}, contacts.newContact);
+					contacts.errorTitle = undefined;
+					contacts.errorsDetail = undefined;
 					$state.go('index.signed_in.contacts.show', { id: response.data.id });
 				}, function onFailedContactsSubmit(response) {
 					contacts.errorTitle = response.data.errors[0].title;
