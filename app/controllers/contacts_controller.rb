@@ -30,7 +30,7 @@ class ContactsController < JsonController
 private
 
 	def contact_params
-		params.require(:contact).permit(:last_name, :first_name, :email, :phone, :address_line_1, :address_line_2, :city, :state, :zip_code)
+		params.require(:contact).permit(:user_id, :last_name, :first_name, :email, :phone, :address_line_1, :address_line_2, :city, :state, :zip_code)
 	end
 
 end
