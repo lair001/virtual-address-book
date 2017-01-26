@@ -11,7 +11,7 @@
 				link: function(scope, element, attrs, ngModel) {
 
 					ngModel.$validators.contactNameRegex = function(value) {
-						return /^\w{1,25}$/i.test(value);
+						return /^[\w']{1,25}$/i.test(value);
 					};
 
 				}
