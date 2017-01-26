@@ -35,6 +35,7 @@
 					url: "/contacts"
 				}).then(function onSuccessfulContactsSubmit(response) {
 					contacts.contacts.push(response.data);
+					contacts.contact = Object.assign({}, contacts.newContact);
 					$state.go('index.signed_in.contacts.show', { id: response.data.id });
 				}, function onFailedContactsSubmit(response) {
 					contacts.errorsDetail = response.data.errors[0].detail;
