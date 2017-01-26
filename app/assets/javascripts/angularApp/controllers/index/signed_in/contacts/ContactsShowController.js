@@ -13,7 +13,7 @@
 			for (var i=0; i < parentContacts.length; i++) {
 				if (contactIdParam === parentContacts[i].id) {
 					contactsShow.contactsIndex = i;
-					contactsShow.contact = parentContacts[i];
+					contactsShow.contact = Object.assign({}, parentContacts[i]);
 					i = parentContacts.length;
 				}
 			}
