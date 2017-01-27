@@ -52,7 +52,7 @@ For security reasons, it is only possible to set adminstrator permissions throug
 
 To set administrator permissions, run `User.find_by(username: "[username]").update(role: "administrator")`.  To remove moderator permissions, run `User.find_by(username: "[username]").update(role: "free")`.
 
-For example, `User.find_by(username: "The One").update(role: "administrator")`will grant moderator permissions to the user whose username is `The One`.
+For example, `User.find_by(username: "The One").update(role: "administrator")`will grant administrator permissions to the user whose username is `The One`.
 
 You may exit the `rails console` command line by running `exit`.
 
