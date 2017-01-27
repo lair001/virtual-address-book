@@ -4,6 +4,7 @@
 			<a ui-sref="index.signed_in.contacts.new">New Contact</a>
 		</div>
 	</div>
+	<div ui-view></div>
 	<div class="row text-center">
 		<div class="col-xs-3">
 			<div class="form-group">
@@ -56,7 +57,6 @@
 			</div>
 		</div>
 	</div>
-	<div ui-view></div>
 	<div class="text-center">
 		<div ng-repeat="contact in contacts.contacts | caseInsensitive:'first_name':contacts.firstNameSearch | caseInsensitive:'last_name':contacts.lastNameSearch | caseInsensitive:'occupation':contacts.occupationSearch | caseInsensitive:'employer':contacts.employerSearch | caseInsensitive:'email':contacts.emailSearch | caseInsensitive:'city':contacts.citySearch | caseInsensitive:'state':contacts.stateSearch | caseInsensitive:'zip_code':contacts.zipCodeSearch | orderBy:'last_name'">
 			<a ui-sref="index.signed_in.contacts.show({ id: contact.id })">{{ contact.last_name }}, {{ contact.first_name }}</a><br>
