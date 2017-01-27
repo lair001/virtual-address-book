@@ -39,11 +39,11 @@ class Contact < ApplicationRecord
 	end
 
 	def address_line_1=(address_line)
-		write_attribute(:address_line_1, self.class.format_address_line(address_line))
+		write_attribute(:address_line_1, self.class.format_address_line(address_line)).gsub("'", "’")
 	end
 
 	def address_line_2=(address_line)
-		write_attribute(:address_line_2, self.class.format_address_line(address_line))
+		write_attribute(:address_line_2, self.class.format_address_line(address_line)).gsub("'", "’")
 	end
 
 	def state=(state)
@@ -51,11 +51,11 @@ class Contact < ApplicationRecord
 	end
 
 	def self.format_last_name(last_name)
-		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(last_name).gsub("'", "’").capitalize
+		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(last_name).gsub("'", "’").split("’").collect{|section| section.capitalize}.join("’")
 	end
 
 	def self.format_first_name(first_name)
-		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(first_name).gsub("'", "’").capitalize
+		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(first_name).gsub("'", "’").split("’").collect{|section| section.capitalize}.join("’")
 	end
 
 	def self.format_occupation(occupation)
@@ -63,7 +63,7 @@ class Contact < ApplicationRecord
 	end
 
 	def self.format_employer(employer)
-		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(employer).split(' ').collect{ |word| word == word.upcase ? word : word.capitalize }.join(' ')
+		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(employer).split(' ').collect{ |word| word == word.upcase ? word : word.capitalize }.join(' ').gsub("'", "’")
 	end
 
 	def self.format_phone(phone)
