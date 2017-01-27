@@ -50,9 +50,9 @@ For security reasons, the user must submit their current password when deleting 
 
 For security reasons, it is only possible to set adminstrator permissions through `rails console` or a database editor.  To do it with `rails console`, navigate to the directory where the respository is cloned and run `rails c`.  This takes you to rails console's command line.  
 
-To set administrator permissions, run `User.find_by(username: "[username]").update(role: "administrator")`.  To remove moderator permissions, run `ForumUser.find_by(username: "[username]").update(role: "free")`.
+To set administrator permissions, run `User.find_by(username: "[username]").update(role: "administrator")`.  To remove moderator permissions, run `User.find_by(username: "[username]").update(role: "free")`.
 
-For example, `ForumUser.find_by(username: "The One").update(role: "administrator")`will grant moderator permissions to the user whose username is `The One`.
+For example, `User.find_by(username: "The One").update(role: "administrator")`will grant moderator permissions to the user whose username is `The One`.
 
 You may exit the `rails console` command line by running `exit`.
 
