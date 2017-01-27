@@ -51,11 +51,11 @@ class Contact < ApplicationRecord
 	end
 
 	def self.format_last_name(last_name)
-		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(last_name).capitalize
+		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(last_name).gsub("'", "’").capitalize
 	end
 
 	def self.format_first_name(first_name)
-		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(first_name).capitalize
+		strip_convert_whitespace_to_spaces_and_trim_whitespace_in(first_name).gsub("'", "’").capitalize
 	end
 
 	def self.format_occupation(occupation)
